@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+    body{background-color: black;}
+    #clock{
+        height: 100px;
+        width: 800px
+        margin:auto;
+        position:absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+        padding-top:70px;
+        font-family: Courier new, monospace;
+        text-align: center;
+        color: #99FF00; text-shadow: 0 0 10px #99FF00;
+        font-size: 100px;
+    }
+</style>
+    <title></title>
+</head>
+<body>
+<div id='clock'></div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function displayTime(){
+
+    });
+    function displayTime(){
+        var currentTime = new Date();
+        var hours = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        var seconds = currentTime.getSeconds();
+        var clockDiv = document.getElementById('clock');
+        clockDiv.innerText = hours + ':' + minutes + ':' + seconds;
+        //these if statements were supposed to add zeros to the numbers for a more professional look ex. 10:01. could not figure out syntax error :(
+        if (seconds <10) {seconds = '0'+ seconds;}
+        if (hours < 10) {hours = '0' + hours;} 
+        if (minutes <10) {hours = '0' + minutes;}
+    }
+    displayTime();
+    setInterval(displayTime, 1000);
+</script>
+</body>
+</html>
